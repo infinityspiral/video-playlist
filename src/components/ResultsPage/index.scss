@@ -1,0 +1,31 @@
+@import './../../styles/styles.scss';
+
+.ResultsPage {
+    @include page;
+
+    .results {
+        padding-top: $single*2;
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    img {
+        max-width: 150px;
+        display: block;
+    }
+
+    a {
+        max-width: 150px;
+        display: inline-block;
+        font-size: 1.3rem;
+        text-decoration: none;
+
+        & + a {
+            margin-left: $single*2;
+        }
+
+        &:hover{
+            color: $grayDark;
+        }
+    }
+}

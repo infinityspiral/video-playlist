@@ -1,0 +1,61 @@
+@import './../../styles/styles.scss';
+
+.CategoryLinkList {
+    margin-bottom: $single*2;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+
+    > div {
+        display: block;
+        line-height: 1;
+
+        display: inline-flex;
+        padding: 5px 10px;
+        margin: 5px;
+        background: $blue;
+        color: white;
+        margin-bottom: 2px;
+        border-radius: 10px;
+
+    }
+    a {
+        color: white;
+        padding-right: $single;
+        font-size: 1.3rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-shadow:  0 1px darken($blue, 20%);
+
+        &:hover{
+            color: $grayDark;
+            text-decoration: none;
+        }
+    }
+    .counter {
+        color: darken($grayLight,20%);
+    }
+    span {
+        font-size: 1.3rem;
+    }
+
+    &.inline {
+        h5 {
+            display: inline-block;
+            margin-right: $single;
+        }
+        > div {
+            display: inline-flex;
+            margin-right: $single;
+            & + div {
+
+                &:before {
+                    content: ' ';
+                    border-left: 1px solid $grayLight;
+                    margin-right: $single;
+                }
+            }
+        }
+    }
+
+}

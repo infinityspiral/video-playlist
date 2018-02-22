@@ -1,0 +1,35 @@
+@import './../../styles/styles.scss';
+
+.content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    @media (min-width: $breakPointM){
+        flex-flow: row nowrap;
+    }
+}
+
+.description {
+    @include fontSizeSmall;
+    margin-bottom: $single*4;
+}
+
+.Sidebar {
+    flex: 1 1 auto;
+    padding: 20px 60px 60px 40px;
+    background: $grayDark;
+    color: lighten($grayLight, 5%);
+    text-align: left;
+    width: 100vw;
+
+    @media (min-width: $breakPointM){
+        max-width: 250px;
+        height: calc(100vh - 145px);
+    }
+}
+.logo {
+    &:hover{
+        cursor: pointer;
+    }
+}

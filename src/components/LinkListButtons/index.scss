@@ -1,0 +1,15 @@
+@import './../../styles/styles.scss';
+
+.LinkListButtons {
+    margin-bottom: $single*2;
+
+    &.inline {
+        h5 {
+            display: inline-block;
+            margin-right: $single;
+        }
+        > div {
+            display: inline-block;
+        }
+    }
+}

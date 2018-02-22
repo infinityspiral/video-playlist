@@ -1,0 +1,214 @@
+@import "https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display:700";
+@import '~normalize.css';
+@import 'icons';
+@import 'colors';
+
+//BREAKPOINTS
+// design for mobile first and add in additional functionality for larger devices
+$breakPointM: 768px; //example usage at the bottom of this file
+$breakPointLG: 992px; //example usage at the bottom of this file
+$breakPointXL: 1200px; //example usage at the bottom of this file
+
+//FONTS
+$playfair: 'Playfair Display',serif;
+$montserrat: 'Montserrat',sans-serif;
+// rem is based off the root element <HTML>
+@mixin fontSizeSmaller{
+    font-size: 1.2rem;
+    line-height:1.4;
+}
+@mixin fontSizeSmall {
+    font-size: 1.5rem;
+    line-height:1.6;
+}
+@mixin fontSizeNormal {
+    font-size: 2.4rem;
+    line-height:1.6;
+    font-weight: 200;
+}
+@mixin fontSizeLarge {
+    font-size: 3.6rem;
+    line-height:1;
+}
+@mixin fontSizeLarger {
+    font-size: 9rem;
+    line-height:1;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+@mixin heading {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+
+//PADDING
+$single: 10px;
+
+//ELEMENTS
+html {
+    font-size: 62.5%;
+}
+body {
+    @include fontSizeNormal;
+    font-family: $montserrat;
+    color: $grayDark;
+    text-rendering: optimizeLegibility;
+}
+p {
+    padding-bottom: 52px;
+}
+h1 {
+    @include heading;
+    @include fontSizeLarger;
+    font-family:$playfair;
+}
+h2 {
+    @include heading;
+    @include fontSizeLarger;
+    font-family:$playfair;
+    position: relative;
+
+    &:after {
+        content: '';
+        background: $grayLight;
+        border-radius: 3px;
+        display: block;
+        margin: $single*3 auto;
+        opacity: .2;
+        height: 12px;
+        width: 20%;
+    }
+}
+h3 {
+    @include heading;
+    @include fontSizeLarge;
+}
+h4 {
+    @include heading;
+    @include fontSizeNormal;
+    font-weight: 700;
+}
+h5 {
+    @include heading;
+    @include fontSizeSmall;
+    font-weight: 700;
+}
+h6 {
+    @include heading;
+    @include fontSizeSmaller;
+    font-weight: 200;
+}
+small {
+    @include fontSizeSmall;
+}
+.fine-print {
+    @include fontSizeSmaller;
+}
+a {
+    text-decoration: underline;
+    color: $grayDark;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.button {
+    @include fontSizeSmall;
+    font-size: 1.5rem!important;
+    display: inline-block;
+    padding: $single $single*2;
+    margin: 0 5px;
+    border:1px solid $grayDark;
+    border-radius: 3.125rem;
+    background: none;
+    font-weight: 700;
+    letter-spacing: .0625rem;
+    text-transform: uppercase!important;
+    text-decoration: none;
+    color: $grayDark;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &.tag {
+        border-color: transparent;
+        background: $blue;
+        line-height: 1;
+    }
+}
+
+.main-menu {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    background: $black;
+
+    @media (min-width: $breakPointM) {
+        flex-flow: row nowrap;
+    }
+
+    h1 {
+        font-family: $montserrat;
+        font-size: 1.7rem;
+        font-weight: 700;
+        line-height: 1;
+        margin: $single*2 $single*3 $single*3 $single*3;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg fill='%23ffffff' xmlns='http://www.w3.org/2000/svg' viewBox='268 0 635.6 89'%3E%3Cpath d='M644 44.1h30.4V32H644V13.3h32.1v-12h-44.7v77.6h46.4V66.8h-33.9l.1-22.7zm-348.4 7.7l1.7 14.5 14.1-1.8-1.7-14.5-14.1 1.8zM337 73.5L309.3 2.8l-.1-.3-.5-1.2h-10l-.7 1.5-.3.9L269 76.3l-1 2.6h13.4s19.2-50 22.1-57.7c1.8 4.6 4.3 11.1 4.3 11.1 15 39.2 16.5 42.9 16.7 43.4 0-.1-.1-.2-.1-.2l.4 1 .3.9.6 1.6h13.4l-1.3-3.4c0-.1-.8-2.1-.8-2.1zm114.9 2.3c-3.9-.5-8.9-1.5-13.9-2.5 4.3-2.9 7.9-6.6 10.6-11.1 3.9-6.5 5.9-14.3 5.9-23.1 0-22.7-15.8-39.1-37.7-39.1-22.4 0-38.6 17.3-38.6 41.1 0 22.4 15.6 38.4 38 39 .6 0 1.2.2 1.9.4.1 0 1.5.5 1.5.5 9.4 2.6 19.9 5.1 29.5 7.2l1.3.3.5.1 1.7.4.6-2.2.4-1.2 1.4-4.8.5-1.6.8-2.8-2.8-.4-1.6-.2zM416 68.4c-14.3 0-25.1-11.8-25.1-27.4 0-14.6 8-29.3 25.9-29.3 16.4 0 25 14 25 27.8-.1 17.3-10.4 28.9-25.8 28.9zm141.3-23c0 10.3-3.1 22.6-17.9 22.6-13.9 0-16.8-12.3-16.8-22.6V1.3h-12.5v44.3c0 31.2 20.3 34.6 29 34.6 19.2 0 30.7-13.1 30.7-35.1V1.3h-12.5v44.1zm226.8-4.2c0 5.1 0 9.6.1 13.8-2.3-3.3-4.7-6.7-4.7-6.7l-1.8-2.5-30.9-43-.4-.6-.7-1h-10.4v77.6h12.5V37.7c0-4.2 0-8.5-.1-12.9 3.1 4.4 6.9 9.9 6.9 9.9l.7 1 29.8 41.6.4.6.7 1h10.3V1.3H784l.1 39.9zm56.1-39.9v12.1h25.5v65.5h12.5V13.4h25.4V1.3h-63.4z'/%3E%3C/svg%3E");
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 17px;
+        width: 119px;
+
+        @media (min-width: $breakPointM) {
+            background-position: left center;
+            flex:0 0 50%;
+            margin: 0;
+        }
+    }
+
+    a {
+        font-size: 1.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $white;
+        text-decoration: none;
+        padding: 0 $single;
+        margin: $single;
+
+        @media (min-width: $breakPointM) {
+            margin: 0;
+        }
+
+        &:hover,
+        &:active,
+        &.active{
+            color: $yellow;
+            text-decoration: underline;
+        }
+    }
+}
+.sub-section {
+    color: $orange;
+}
+
+@mixin page{
+    flex: 1 1 100%;
+    margin: $single*4;
+
+    h3 {
+        border-bottom: 1px solid $grayLight;
+    }
+}
+.page{
+    @include page
+}

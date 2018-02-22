@@ -1,0 +1,35 @@
+@import './../../styles/styles.scss';
+
+.LinkListThumbs {
+    margin-bottom: $single*2;
+    padding-top: $single*2;
+    border-top: 1px solid $grayLight;
+
+    > div {
+        display: flex;
+    }
+
+    a {
+        max-width: 150px;
+        display: inline-block;
+        font-size: 1.3rem;
+        text-decoration: none;
+
+        & + a {
+            margin-left: $single*2;
+        }
+
+        &:hover{
+            color: $grayDark;
+        }
+
+        img {
+            max-width: 150px;
+            display: block;
+        }
+
+        span {
+            display: block;
+        }
+    }
+}
